@@ -1,6 +1,8 @@
 <?php
 namespace Application\Router;
 
+use Application\Controllers;
+
 class Router
 {       
     public static function route()
@@ -26,8 +28,7 @@ class Router
 
             if (file_exists('Application/Controllers/'.$controller.'.php'))
             {
-                use Application\Controllers\$controller;
-                $controller = new Application\Controllers\$controller();
+                $controller = new $controller();
                 if (method_exists($controller, $method))
                 {
                     return call_user_func_array(array($controller, $method), $params);
