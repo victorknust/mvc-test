@@ -1,6 +1,4 @@
 <?php
-namespace Application\Controllers;
-
 class HomeController extends Controller
 {
 	public function __construct()
@@ -11,6 +9,6 @@ class HomeController extends Controller
 	public function home()
     {
         $data = $this->model->dummy_data();
-        $this->load->view('/home/home.php', $data);
+        $this->load->view('home/home.php', $data);
     }
 }

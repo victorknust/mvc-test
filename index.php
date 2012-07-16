@@ -1,2 +1,2 @@
 <?php
-require 'app.php';
+require 'core/app.php';
