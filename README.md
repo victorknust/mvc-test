@@ -1,4 +1,4 @@
 mvc-test
 ========
 
-MVC testing
+A play around with creating a simple MVC setup

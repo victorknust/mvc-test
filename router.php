@@ -1,5 +1,6 @@
 <?php
 namespace Application\Router;
+
 class Router
 {       
     public static function route()
