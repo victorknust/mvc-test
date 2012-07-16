@@ -7,7 +7,7 @@ class Controller
     public function __construct()
     {
         $this->load  = new Load();
-        $this->model   = new Model();
+        $this->model = new Model();
     }
 
     public function defaultHome()
