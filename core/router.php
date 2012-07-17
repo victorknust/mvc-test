@@ -6,9 +6,9 @@ class Router
         $segments   = explode("/", $_SERVER['REQUEST_URI']);
         unset($segments[0]);
 
-        if ($segments[1] == 'index.php')
+        if ($segments[1] == 'index.php' || ! $segments[1])
         {
-            $controller->home();
+            $controller->defaultHome();
         } 
         else
         {

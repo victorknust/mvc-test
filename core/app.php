@@ -4,7 +4,7 @@ require 'model.php';
 require 'controller.php';
 require 'router.php';
 
-function class_autoloader($class) {
+spl_autoload_register(function ($class) {
     // Array of folders to look in (ordered by preference)
     $folders = array(
         'application/controllers',
@@ -17,9 +17,7 @@ function class_autoloader($class) {
             break;
         }   
     }
-}
-
-spl_autoload_register('class_autoloader');
+});
 
 $app   = new Controller();
 $route = Router::route();

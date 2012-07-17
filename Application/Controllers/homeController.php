@@ -11,4 +11,9 @@ class HomeController extends Controller
         $data = $this->model->dummy_data();
         $this->load->view('home/home.php', $data);
     }
+
+    public function about()
+    {
+    	$this->load->view('home/about.php');
+    }
 }
