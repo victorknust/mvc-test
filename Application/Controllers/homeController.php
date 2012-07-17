@@ -6,7 +6,7 @@ class HomeController extends Controller
 		parent::__construct();
 	}
 
-	public function home()
+	public function index()
     {
         $data = $this->model->dummy_data();
         $this->load->view('home/home.php', $data);
