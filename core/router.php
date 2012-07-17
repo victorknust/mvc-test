@@ -2,6 +2,7 @@
 /**
  * Basic routing class for MVC test 
  * @package MVC-test
+ * @subpackage core
  * @author Ryan Marshall <ryan@irealms.co.uk>
  */
 class Router
@@ -12,7 +13,7 @@ class Router
         $segments = new ArrayObject($segments);
         $segments->offsetUnset(0);
 
-        if ($segments->offsetGet(1) == 'index.php' || ! $segments->offsetGet(1))
+        if ($segments->offsetGet(1) == 'index.php' || ! $segments->offsetExists(1))
         {
             $controller = new Controller();
             $controller->defaultHome();
@@ -21,6 +22,7 @@ class Router
         {
             $controller = ucfirst($segments->offsetGet(1)).'Controller';
             $segments->offsetUnset(1);
+            
             if ($segments->offsetExists(2))
             {
                 $method = $segments->offsetGet(2);
@@ -31,7 +33,7 @@ class Router
                 $method = 'index';
             }
 
-            $params = array();
+            $params = (array) $segments;
 
             if (file_exists('application/controllers/'.$controller.'.php'))
             {

@@ -1,9 +1,4 @@
 <?php
-require 'load.php';
-require 'model.php';
-require 'controller.php';
-require 'router.php';
-
 spl_autoload_register(function ($class) {
     // Array of folders to look in (ordered by preference)
     $folders = array(
