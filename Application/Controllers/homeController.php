@@ -4,7 +4,10 @@
  * @package MVC-test
  * @author Ryan Marshall <ryan@irealms.co.uk>
  */
-class HomeController extends Controller
+namespace application\controllers;
+use core;
+
+class HomeController extends core\Controller
 {
 	public function __construct()
 	{

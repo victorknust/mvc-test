@@ -5,6 +5,11 @@
  * @subpackage core
  * @author Ryan Marshall <ryan@irealms.co.uk>
  */
+namespace core;
+
+use application\controllers;
+use ArrayObject;
+
 class Router
 {       
     public static function route()
@@ -15,7 +20,7 @@ class Router
 
         if ($segments->offsetGet(1) == 'index.php' || ! $segments->offsetExists(1))
         {
-            $controller = new Controller();
+            $controller = new namespace\Controller();
             $controller->defaultHome();
         } 
         else
@@ -37,7 +42,7 @@ class Router
 
             if (file_exists('application/controllers/'.$controller.'.php'))
             {
-                $controller = new $controller();
+                $controller = new controllers\$controller();
                 if (method_exists($controller, $method))
                 {
                     return call_user_func_array(array($controller, $method), $params);

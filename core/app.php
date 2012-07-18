@@ -1,20 +1,9 @@
 <?php
-spl_autoload_register(function ($class) {
-    // Array of folders to look in (ordered by preference)
-    $folders = array(
-        'application/controllers',
-        'core'
-    );
- 
-    foreach($folders as $folder) {
-        if(file_exists($folder . '/' . $class . '.php')) {
-            include_once $folder . '/' . $class . '.php';
-            break;
-        }   
-    }
-});
+namespace core;
 
-$app   = new Controller();
+spl_autoload_register();
+
+$app   = new namespace\Controller();
 $route = Router::route();
 
 if ($route == '404')

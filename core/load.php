@@ -1,4 +1,6 @@
 <?php
+namespace core;
+
 class Load 
 {
     public function __construct()
