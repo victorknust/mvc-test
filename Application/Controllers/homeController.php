@@ -5,6 +5,7 @@
  * @author Ryan Marshall <ryan@irealms.co.uk>
  */
 namespace application\controllers;
+
 use core;
 
 class HomeController extends core\Controller

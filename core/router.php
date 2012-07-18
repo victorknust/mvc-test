@@ -7,7 +7,6 @@
  */
 namespace core;
 
-use application\controllers;
 use ArrayObject;
 
 class Router
@@ -18,7 +17,7 @@ class Router
         $segments = new ArrayObject($segments);
         $segments->offsetUnset(0);
 
-        if ($segments->offsetGet(1) == 'index.php' || ! $segments->offsetExists(1))
+        if ($segments->offsetGet(1) == 'index.php' || ! $segments->offsetGet(1))
         {
             $controller = new namespace\Controller();
             $controller->defaultHome();
@@ -28,7 +27,7 @@ class Router
             $controller = ucfirst($segments->offsetGet(1)).'Controller';
             $segments->offsetUnset(1);
             
-            if ($segments->offsetExists(2))
+            if ($segments->offsetGet(2))
             {
                 $method = $segments->offsetGet(2);
                 $segments->offsetUnset(2);
@@ -42,7 +41,8 @@ class Router
 
             if (file_exists('application/controllers/'.$controller.'.php'))
             {
-                $controller = new controllers\$controller();
+                $controller = '\application\controllers\\' . $controller;
+                $controller = new $controller();
                 if (method_exists($controller, $method))
                 {
                     return call_user_func_array(array($controller, $method), $params);
