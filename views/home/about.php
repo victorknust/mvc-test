@@ -5,6 +5,6 @@
 	<title>About</title>
 </head>
 <body>
-	<p>About page for mvc test app</p>
+	<p>Welcome <?=$first?> <?=$last?> to the About page for mvc test app</p>
 </body>
 </html>

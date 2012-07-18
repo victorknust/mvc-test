@@ -21,8 +21,16 @@ class HomeController extends core\Controller
         $this->load->view('home/home.php', $data);
     }
 
-    public function about()
+    public function about($first = null, $last = null)
     {
-    	$this->load->view('home/about.php');
+        if ($first && $last)
+        {
+            $data = array(
+                'first' => $first,
+                'last'  => $last
+                );
+        }
+        
+    	$this->load->view('home/about.php', $data);
     }
 }
